@@ -3,7 +3,7 @@ import { getProfile, register, userLogin } from '../controllers/userController.j
 
 let userRouter = express.Router();
 
-userRouter.post('/register',register)
+userRouter.post('/register',register)    
 userRouter.post('/login',userLogin)
 userRouter.get('/profile/:email',getProfile  )
 
