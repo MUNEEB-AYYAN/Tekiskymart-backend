@@ -5,6 +5,6 @@ let userRouter = express.Router();
 
 userRouter.post('/register',register)
 userRouter.post('/login',userLogin)
-userRouter.get('/profile/:email',getProfile  )
+userRouter.get('/profile/:email',getProfile)
 
 export default userRouter
