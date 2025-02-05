@@ -1,5 +1,6 @@
 import { comparePassword, hashPassword } from "../Authentication/bcrypt.js";
-import { userCreateServices, userLoginServices } from "../services/userService.js";
+import { genrateToken, veriFyJwtToken } from "../Authorization/jwtToken.js";
+import { getAllUser, userCreateServices, userLoginServices } from "../services/userService.js";
 
 export let register = async(req,res)=> {
     let {username,mobile,email,password}=req.body;
@@ -26,9 +27,10 @@ export let userLogin=async(req,res)=>{
    try {
     let dbPaassword = await userLoginServices(email)
     let log = await comparePassword(password,dbPaassword)
-    console.log(log)
+    let token= await genrateToken(email,process.env.PRIVATEKEY)
+    console.log(log) 
     if (log) {
-        res.send(`user login succesfull!`)
+        res.send(`user login succesfull! ${token}`)
     } else {
         res.send(`user login failed!`)
     }
@@ -38,7 +40,21 @@ export let userLogin=async(req,res)=>{
     
 }
 
-export let getProfile=(req,res)=>{
-    res.send('succesfully')
+export let getProfile=async(req,res)=>{
+
+    let getToken = req.headers["authorization"]
+    console.log(getToken) 
+    try {
+           let verifyjwt=await veriFyJwtToken(getToken.split(` `)[1],process.env.PRIVATEKEY)
+           if (verifyjwt) {
+             let allUserData =await getAllUser()
+
+              res.send(`token verify successfully  ${allUserData}`)            
+           } else {
+            res.send(`token verify failed `)
+           }
+    } catch (error) {
+        console.log(`erroe occured at  getProfile${error.message}`)
+    }
     
 }
