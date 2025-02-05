@@ -8,4 +8,4 @@ userRouter.post('/login',userLogin)
 userRouter.post('/profile/:email',getProfile  )
 
 
-export default userRouter  
+export default userRouter

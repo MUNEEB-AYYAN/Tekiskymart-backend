@@ -1,5 +1,9 @@
-export let orderController=(req,res)=>{
-    res.send("succesfully")
+export let orderController = (req,res)=>{
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 export let orderAddress=(req,res)=>{
