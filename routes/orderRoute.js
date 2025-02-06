@@ -1,13 +1,10 @@
 import express from "express"
 
 let orderRouter=express.Router()
-import {orderController,orderAddress,ordermobile,ordercity} from "../controllers/orderController.js"
+import {orderController} from "../controllers/orderController.js"
 
 
-orderRouter.get('/order',orderController)
-orderRouter.post('/adress/:area/:city/:pincode',orderAddress)
-orderRouter.get('/mobile/',ordermobile)
-orderRouter.get('/city/:state',ordercity)
+orderRouter.post('/order',orderController)
 
 
 

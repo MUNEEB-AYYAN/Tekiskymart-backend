@@ -35,7 +35,7 @@ export let userLogin=async(req,res)=>{
         res.send(`user login failed!`)
     }
    } catch (error) {
-    console.log(`eerror occured at userlogin ${error.message}`)
+    console.log(`error occured at userlogin ${error.message}`)
    }
     
 }

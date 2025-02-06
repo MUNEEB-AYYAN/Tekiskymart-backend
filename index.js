@@ -15,7 +15,7 @@ dbConnect(process.env.DBURL,process.env.DBNAME)
 
 
 app.use('/user',userRouter)
-app.use('/order',orderRouter)
+app.use('/allorder',orderRouter)
 // app.use('/payment',orderRouter)
 
 
