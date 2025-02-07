@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import express from 'express'
-const app = express()
-=======
-import express from "express"
 let app=express()
 import dotenv from "dotenv"
 import bodyParser from "body-parser"
@@ -37,4 +33,4 @@ app.use('/payment',orderRouter)
 app.listen(port,()=>{
      console.log(`server started successfully at ${port} number` )
 })
->>>>>>> 3cc76d3a97fd71c3a125bdd6e243f2058633cb44
+
