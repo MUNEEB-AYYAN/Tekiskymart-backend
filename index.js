@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import userRouter from "./routes/userRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 import productRoute from "./routes/productRoute.js"
+import preorderRoute from "./routes/preorderRoute.js"
 import cors from "cors"
 import dbConnect from "./db/connection.js"
 
@@ -17,7 +18,7 @@ dbConnect(process.env.DBURL,process.env.DBNAME)
 app.use('/product',productRoute)
 app.use('/user',userRouter)
 app.use('/allorder',orderRouter)
-// app.use('/payment',orderRouter)
+app.use('/preorder',preorderRoute)
 
 
 app.listen(port,()=>{
