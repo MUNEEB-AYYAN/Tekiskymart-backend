@@ -1,16 +1,26 @@
-export let orderController=(req,res)=>{
-    res.send("succesfully")
-}
+import { orderCreateServices } from "../services/orderService.js"
 
-export let orderAddress=(req,res)=>{
-    res.send("succesfully address ")
+export let  orderController= async(req,res)=>{
+    let {name,mobile,address,}=req.body
+     console.log(`user ${name} mobile ${mobile}  address${address}`)
+    try {
+        
+let ordercreate = await orderCreateServices(name,mobile,address,)
+    if (ordercreate) {
+        res.send(`ordercreate created succesfully! ${ordercreate}`)
+    }else{
+        res.send(`ordercreate not create`)
+    }
+    
+   } catch (error) {
+    console.log(`error occured at orderController ${error.message}`)
+   }
 }
+   
 
-export let ordermobile=(req,res)=>{
-    let num = req.parems.mobile
-    res.send(num)
-}
 
-export let ordercity=(req,res)=>{
-    res.send(" city succesfully  ")
-}
+
+
+
+
+
