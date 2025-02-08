@@ -8,21 +8,17 @@ const orderSchema = new mongoose.Schema({
   mobile: {
     type: String,
     required: true,
-    unique: true,
-    match: [/^\d{10}$/, "Please enter a valid 10-digit mobile number"],
+    unique: true
   },
   city: {
     type: String,
     required: true,
-    unique: true,
-    match: ["Please enter a valid email address"],
   },
 
   name: {
     type: String,
     required: true,
-    unique: true,
-  },
+        },
 });
 
 let orderModel = mongoose.model("order", orderSchema);

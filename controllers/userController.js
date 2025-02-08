@@ -5,19 +5,19 @@ import { getAllUser, userCreateServices, userLoginServices } from "../services/u
 export let register = async(req,res)=> {
     let {username,mobile,email,password}=req.body;
     console.log(`user ${username}, mobile${mobile},email ${email},password ${password}`)
-   try {
+try {
     let hash = await hashPassword(password)
     console.log(hash)
     let userCreate = await userCreateServices(username,mobile,email,hash)
     if (userCreate) {
-        res.send(`userCreate created succesfully! ${userCreate}`)
+        res.send(`userCreate created succesfully ${userCreate}`)
     }else{
         res.send(`userCreate not create`)
     }
     
-   } catch (error) {
+} catch (error) {
     console.log(`error occured at user ${error.message}`)
-   }
+}
 }
 
 
@@ -54,7 +54,7 @@ export let getProfile=async(req,res)=>{
             res.send(`token verify failed `)
            }
     } catch (error) {
-        console.log(`erroe occured at  getProfile${error.message}`)
+        console.log(`error occured at  getProfile${error.message}`)
     }
     
 }

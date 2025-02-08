@@ -1,11 +1,11 @@
 import { orderCreateServices } from "../services/orderService.js"
 
 export let  orderController= async(req,res)=>{
-    let {name,mobile,address,}=req.body
+    let {name,mobile,address,city}=req.body
      console.log(`user ${name} mobile ${mobile}  address${address}`)
     try {
         
-let ordercreate = await orderCreateServices(name,mobile,address,)
+let ordercreate = await orderCreateServices(name,mobile,address,city)
     if (ordercreate) {
         res.send(`ordercreate created succesfully! ${ordercreate}`)
     }else{

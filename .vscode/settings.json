@@ -1,7 +1,16 @@
 {
     "cSpell.words": [
+<<<<<<< HEAD
         "allorder",
         "DBNAME",
         "preorder"
+=======
+        "DBNAME",
+        "occured",
+        "ordercity",
+        "ordermobile",
+        "pincode",
+        "Tekiskymart"
+>>>>>>> 4e527bc1757ddae37f431358750be5a2fcf4bcf7
     ]
 }
