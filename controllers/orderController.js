@@ -7,7 +7,7 @@ export let  orderController= async(req,res)=>{
         
 let ordercreate = await orderCreateServices(name,mobile,address,city)
     if (ordercreate) {
-        res.send(`ordercreate created succesfully! ${ordercreate}`)
+        res.send(`ordercreate created succesfully ${ordercreate}`)
     }else{
         res.send(`ordercreate not create`)
     }
