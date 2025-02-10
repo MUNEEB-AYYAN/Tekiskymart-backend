@@ -31,12 +31,15 @@ export const getAllProduct = async (req, res) => {
 export const getOneProduct = async (req, res) => {
   try {
     const product = await getOneProductServices(req.params.id);
-    if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+    if (product) {
+      res.status(200).json(product);
+
     }
-    res.status(200).json(product);
+    else{
+      res.status(404).json({ message: 'Product not found' });
+    }
   } catch (err) {
-    res.status(500).json({ message: 'Error retrieving product', error: err });
+    console.log(`error occured at get one product controller ${err.message}`);
   }
 };
 
@@ -44,12 +47,14 @@ export const getOneProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
   try {
     const updatedProduct = await updateProductServices(req.params.id, req.body);
-    if (!updatedProduct) {
-      return res.status(404).json({ message: 'Product not found' });
+    console.log(req.params.id)
+    if (updatedProduct) {
+      res.status(200).json(updatedProduct);
+    }else{
+      res.status(404).json({ message: 'Product not found' });
     }
-    res.status(200).json(updatedProduct);
   } catch (err) {
-    res.status(500).json({ message: 'Error updating product', error: err });
+    console.log(`error occured at update product controller ${err.message}`)
   }
 };
 
@@ -57,12 +62,15 @@ export const updateProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
   try {
     const deletedProduct = await deleteProductServices(req.params.id);
-    if (!deletedProduct) {
-      return res.status(404).json({ message: 'Product not found' });
+    if (deletedProduct) {
+      res.status(200).json({ message: 'Product deleted' });
+    }else{
+      res.status(404).json({ message: 'Product not found' });
     }
-    res.status(200).json({ message: 'Product deleted' });
+    
   } catch (err) {
-    res.status(500).json({ message: 'Error deleting product', error: err });
+    console.log(`error occurred at delete product controller ${err.message}`);
+
   }
 };
 

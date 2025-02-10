@@ -6,6 +6,7 @@ import userRouter from "./routes/userRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 import cors from "cors"
 import dbConnect from "./db/connection.js"
+import productRoute from "./routes/productRoute.js"
 
 
 
@@ -23,6 +24,7 @@ app.use(cors())
 app.use('/user',userRouter)
 app.use('/order',orderRouter)
 app.use('/payment',orderRouter)
+app.use('/product',productRoute)
 
 
 
