@@ -14,7 +14,7 @@ export let userCreateServices =async (username,mobile,email,password) => {
 export let userLoginServices =async (email) => {
     try {
         let getDbUser = await userModel.findOne({email})
-        return getDbUser.password;
+        return getDbUser.password;   
 
     } catch (error) {
         console.log(`error occured at user login services ${error.message}`)
