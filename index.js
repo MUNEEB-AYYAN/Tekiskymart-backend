@@ -17,7 +17,7 @@ dbConnect(process.env.DBURL,process.env.DBNAME)
 
 app.use('/product',productRoute)
 app.use('/user',userRouter)
-app.use('/allorder',orderRouter)
+app.use('/buy',orderRouter)
 app.use('/preorder',preorderRoute)
 
 

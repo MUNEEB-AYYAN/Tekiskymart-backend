@@ -11,17 +11,22 @@ export let userCreateServices =async (username,mobile,email,password) => {
     }
 }
 
-export let userLoginServices =async (email) => {
+export let userLoginServices = async (email) => {
     try {
-        let getDbUser = await userModel.findOne({email})
-        return getDbUser.password;   
+        let getDbUser = await userModel.findOne({ email });
 
+        if (!getDbUser) {
+            return null; // Handle user not found
+        }
+
+        return getDbUser;
     } catch (error) {
-        console.log(`error occured at user login services ${error.message}`)
+        console.error(`Error occurred at userLoginServices: ${error.message}`);
+        return null;
     }
-}
+};
 
-export let getAllUser =async ()=>{
+export let getAllUserServices =async ()=>{
     try {
         let allData= await userModel.find()
         return allData

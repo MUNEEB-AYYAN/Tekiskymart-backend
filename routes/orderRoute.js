@@ -1,7 +1,8 @@
 import express from "express"
+import {orderController} from "../controllers/orderController.js"
+
 
 let orderRouter=express.Router()
-import {orderController} from "../controllers/orderController.js"
 
 
 orderRouter.post('/order',orderController)

@@ -1,22 +1,9 @@
 import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
-  address: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  mobile: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/^\d{10}$/, 'Please enter a valid 10-digit mobile number'],
-  },
-   name:{
-    type: String,
-    required: true,
-    unique: true,
-  
-  }
+  name: { type: String},
+  mobile: { type: Number},
+  whatsAppNumber: { type: Number},
+  address: { type: String},
 
 });
 

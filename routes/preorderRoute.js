@@ -2,6 +2,6 @@
  let preorderRoute = express.Router()
  import {preordercontoller} from "../controllers/preorderController.js"
 
- preorderRoute.post('/preorder',preordercontoller)
+ preorderRoute.post('/',preordercontoller)
 
  export  default preorderRoute
