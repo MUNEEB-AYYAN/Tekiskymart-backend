@@ -1,16 +1,18 @@
-import { orderCreateServices } from "../services/orderService.js";
+import { orderCreateServices } from "../services/orderService.js"
 
-export let orderController = async (req, res) => {
-    let { name, mobile, address, city } = req.body;
-    console.log(`user ${name} mobile ${mobile}  address${address}`);
+export let  orderController= async(req,res)=>{
+    let {name,mobile,address,whatsAppNumber,}=req.body
+     console.log(`user ${name} mobile ${mobile}  address  ${address}   whatsapp  ${whatsAppNumber} `)
     try {
-    let ordercreate = await orderCreateServices(name, mobile, address, city);
+        
+let ordercreate = await orderCreateServices(name,mobile,address,whatsAppNumber)
     if (ordercreate) {
-    res.send(`ordercreate created succesfully ${ordercreate}`);
-    } else {
-    res.send(`ordercreate not create`);
+    res.json({message:'user create succesfully' , status:200})
+    }else{
+        res.json({message:'user not succesfully' , status:200})
     }
-    } catch (error) {
-    console.log(`error occured at orderController ${error.message}`);
+    
+   } catch (error) {
+    console.log(`error occured at orderController ${error.message}`)
+   }
 }
-};

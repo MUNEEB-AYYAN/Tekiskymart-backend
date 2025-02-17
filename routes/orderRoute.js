@@ -1,11 +1,12 @@
 import express from "express"
-
-let orderRouter=express.Router()
 import {orderController} from "../controllers/orderController.js"
 
 
-orderRouter.post('/order',orderController)
+let orderRoute=express.Router()
+
+
+orderRoute.post('/order',orderController)
 
 
 
-export default orderRouter
+export default orderRoute

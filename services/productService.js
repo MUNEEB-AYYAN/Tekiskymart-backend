@@ -64,3 +64,12 @@ export const deleteProductServices = async (productId) => {
     throw new Error("Failed to delete product. Please try again.");
   }
 };
+
+export const categoryServices = async (category) =>{
+  try {
+      const  products = await Product.find({category})
+      res.json(`category find successfully`)
+  } catch (error) {
+    console.log(`error occured while find category ${error.message}`); 
+  }
+}

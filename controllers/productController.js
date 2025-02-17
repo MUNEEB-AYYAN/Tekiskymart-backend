@@ -74,3 +74,13 @@ export const deleteProduct = async (req, res) => {
   }
 };
 
+export const categorycontroller= async(req,res)=>{
+  let category=req.params.category
+  try {
+    const products=await categoryServices(category)
+    
+  } catch (error) {
+    
+  }
+}
+

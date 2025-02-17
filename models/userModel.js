@@ -1,28 +1,10 @@
-// const mongoose = require('mongoose');
 import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-      trim: true,
-  },
-  mobile: {
-    type: Number,
-    unique: true,
-    match: [/^\d{10}$/, 'Please enter a valid 10-digit mobile number'],
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 6,
-  }
+  username: String,
+  mobile: String,
+  email: { type: String, unique: true, required: true }, // Ensure email is unique
+  password: { type: String, required: true },
 });
 
 let userModel=mongoose.model('User', userSchema);
