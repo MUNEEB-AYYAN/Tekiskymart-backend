@@ -6,7 +6,7 @@ productRoute.post('/create', createProduct);
 productRoute.get('/getallproduct',getAllProduct);
 productRoute.put('/updateproduct/:id',updateProduct);
 productRoute.delete('/deleteproduct',deleteProduct);
-productRoute.get('/getOneProduct',getOneProduct)
+productRoute.get('/getOneProduct/:id',getOneProduct)
 productRoute.get('/category',categorycontroller)
 
 
