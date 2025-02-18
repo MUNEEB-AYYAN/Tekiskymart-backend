@@ -29,9 +29,12 @@ export const getAllProduct = async (req, res) => {
 
 // Get product by ID
 export const getOneProduct = async (req, res) => {
-
-  const id = req.params.id
   try {
+    const id = req.params.id
+
+
+    console.log(id, "yuugyt");
+    
     const product = await getOneProductServices(id);
     if (product) {
       res.status(200).json(product);
